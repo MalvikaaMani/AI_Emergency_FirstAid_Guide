@@ -1,0 +1,56 @@
+# ---------------- Python ----------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# ---------------- Streamlit ----------------
+.streamlit/secrets.toml
+
+# ---------------- OS Files ----------------
+.DS_Store
+Thumbs.db
+
+# ---------------- IDE / Editor ----------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---------------- Jupyter ----------------
+.ipynb_checkpoints/
+
+# ---------------- Logs & Temp ----------------
+*.log
+*.tmp
+
+# ---------------- SQLite ----------------
+*.db
+*.sqlite3
+
+# ---------------- Model Cache ----------------
+.cache/
+torch_cache/
+huggingface/
+hf_cache/
+
+# ---------------- Audio / Media Temp ----------------
+*.wav
+*.mp3
+*.ogg
+
+# ---------------- Python Packaging ----------------
+build/
+dist/
+
+# ---------------- Safety ----------------
+secrets.json
+credentials.json
