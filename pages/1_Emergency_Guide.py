@@ -1,12 +1,8 @@
 import streamlit as st
 from backend.rag_engine import RAGEngine
 from backend.db import init_db, log_event
-# from backend.voice_input import capture_voice_input
-try:
-    from backend.voice_input import capture_voice_input
-    VOICE_ENABLED = True
-except ImportError:
-    VOICE_ENABLED = False
+from backend.voice_input import capture_voice_input
+
 
 
 # METADATA
@@ -40,19 +36,15 @@ st.session_state.setdefault("response", None)
 st.session_state.setdefault("meta", None)
 
 # ---------------- VOICE INPUT ----------------
-if VOICE_ENABLED:
-    if st.button("🎙️ Speak Emergency"):
-        with st.spinner("Listening..."):
-            spoken_text = capture_voice_input()
+if st.button("🎙️ Speak Emergency"):
+    with st.spinner("Listening..."):
+        spoken_text = capture_voice_input()
 
-        if spoken_text:
-            st.session_state.query = spoken_text
-            st.success(f"You said: {spoken_text}")
-        else:
-            st.error("Could not recognize speech.")
-else:
-    st.info("🎙️ Voice input is disabled on web deployment.")
-
+    if spoken_text:
+        st.session_state.query = spoken_text
+        st.success(f"You said: {spoken_text}")
+    else:
+        st.error("Could not recognize speech.")
 
 # ---------------- TEXT INPUT ----------------
 st.session_state.query = st.text_area(
